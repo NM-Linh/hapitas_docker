@@ -1,4 +1,16 @@
 version: '3'
 services:
   centos7:
-    image: linhmn/hapitas_docker
+    image: centos:7
+    container_name: centos7
+
+  php-5.6-cli:
+    image: php:5.6-cli
+    container_name: php5.6
+    volumes_from:
+      - hapitas_volumes
+
+  hapitas_volumes:
+    image: tianon/true
+    volumes:
+      - ~/syswork/GitHub:var/www
